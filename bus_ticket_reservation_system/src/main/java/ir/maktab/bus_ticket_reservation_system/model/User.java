@@ -1,5 +1,7 @@
 package ir.maktab.bus_ticket_reservation_system.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import ir.maktab.bus_ticket_reservation_system.json_formater.CustomLocalDateTimeSerializer;
 import ir.maktab.bus_ticket_reservation_system.model.enumeration.UserGender;
 import ir.maktab.bus_ticket_reservation_system.model.enumeration.UserType;
 import ir.maktab.bus_ticket_reservation_system.service.IUser;
@@ -68,6 +70,7 @@ public class User extends BaseEntity<Long> implements IUser {
     private Set<String> email = new HashSet<>();
 
     @Column(name = BIRTH_DATE)
+    @JsonSerialize(using = CustomLocalDateTimeSerializer.class)
     private LocalDateTime birthDate;
 
     @Column(name = NATIONAL_CODE, nullable = false, unique = true)
