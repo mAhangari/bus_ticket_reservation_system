@@ -6,6 +6,7 @@ import ir.maktab.bus_ticket_reservation_system.service.IUser;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -35,9 +36,11 @@ public class User extends BaseEntity<Long> implements IUser {
     private static final String USER_GENDER = "user_gender";
 
     @Column(name = FIRST_NAME)
+    @NotBlank(message = "First Name not should be blank")
     private String firstName;
 
     @Column(name = LAST_NAME)
+    @NotBlank(message = "Last Name not should be blank")
     private String lastName;
 
     @Column(name = USER_NAME, unique = true, nullable = false)
