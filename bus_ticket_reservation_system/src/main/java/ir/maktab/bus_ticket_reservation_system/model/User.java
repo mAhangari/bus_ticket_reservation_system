@@ -84,4 +84,21 @@ public class User extends BaseEntity<Long> implements IUser {
     public void setRevoked(boolean revoked) {
 
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", userType=" + userType +
+                ", mobileNumber=" + mobileNumber +
+                ", email=" + email +
+                ", birthDate=" + birthDate +
+                ", nationalCode='" + nationalCode + '\'' +
+                ", isActive=" + isActive +
+                ", loggedIn=" + loggedIn +
+                '}';
+    }
 }
