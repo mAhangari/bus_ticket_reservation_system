@@ -1,5 +1,6 @@
 package ir.maktab.bus_ticket_reservation_system.model;
 
+import ir.maktab.bus_ticket_reservation_system.model.enumeration.UserGender;
 import ir.maktab.bus_ticket_reservation_system.model.enumeration.UserType;
 import ir.maktab.bus_ticket_reservation_system.service.IUser;
 import lombok.*;
@@ -31,6 +32,7 @@ public class User extends BaseEntity<Long> implements IUser {
     private static final String IS_ACTIVE = "is_active";
     private static final String LOGGED_IN = "logged_in";
     private static final String NATIONAL_CODE = "national_code";
+    private static final String USER_GENDER = "user_gender";
 
     @Column(name = FIRST_NAME)
     private String firstName;
@@ -44,6 +46,10 @@ public class User extends BaseEntity<Long> implements IUser {
     @Column(name = PASSWORD, nullable = false)
     @Getter(AccessLevel.PRIVATE)
     private String password;
+
+    @Column(name = USER_GENDER, nullable = false)
+    @Enumerated(value = EnumType.STRING)
+    private UserGender userGender;
 
     @Column(name = USER_TYPE, nullable = false)
     @Enumerated(value = EnumType.STRING)
