@@ -5,6 +5,8 @@ import ir.maktab.bus_ticket_reservation_system.service.login.ExceptionHandling.A
 import ir.maktab.bus_ticket_reservation_system.service.login.ExceptionHandling.AccountNotFoundException;
 import ir.maktab.bus_ticket_reservation_system.service.login.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -48,6 +50,7 @@ public class LoginFilter implements Filter {
 
     private void dispatchFailedLogin(ServletRequest request, ServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         request.setAttribute("message", "Sorry, your username or password was incorrect. Please double-check your username and password.");
+        request.setAttribute("account", null);
         filterChain.doFilter(request, response);
     }
 
