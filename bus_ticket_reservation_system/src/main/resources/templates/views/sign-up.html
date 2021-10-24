@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Sign-up</title>
+    <link rel="stylesheet" href="/css/signup_form.css"/>
+    <script src="https://kit.fontawesome.com/0f0e261005.js" crossorigin="anonymous"></script>
+    <script src="/javaScript/javaScriptFunctions.js"></script>
+</head>
+<body>
+<div class="div1">
+    <h2 style="padding: 20px;">Sign-Up</h2>
+    <form action="/add-customer" method="post" onsubmit="return checkRepeatPass()">
+
+            <span class="container">
+
+                <input id="firstnameID" type="text" placeholder="First Name" name="firstName" required />
+                <input id="lastnameID" type="text" placeholder="Last Name" name="lastName" required />
+                <div>
+                    <input id="usernameID" type="text" name="username" placeholder="Username" maxlength="15" minlength="3" pattern="^[A-Za-z0-9_-]{3,15}$" required>
+                    <i style="color: rgb(173, 173, 173);" class="fa fa-exclamation-circle position-absolute padding-up" aria-hidden="true">
+                        <span class="tooltip">must be between 3 to 15 characters</span>
+                    </i>
+                </div>
+                <div>
+                    <input id="passID" type="password" placeholder="Password" pattern="^.{8,}$" name="password" required>
+                    <i style="color: rgb(173, 173, 173);" class="fa fa-exclamation-circle position-absolute padding-up" aria-hidden="true">
+                        <span class="tooltip">at least 8 characters</span>
+                    </i>
+                </div>
+
+                <input id="pass-repeatID" type="password" placeholder="Repeat Password" name="passRepeat" required>
+                <input id="nationalCodeID" type="text" placeholder="National Code" name="nationalCode" required>
+
+                <label style="font-size: 12px; color: gray; padding: 10px;">
+                    <input type="checkbox" checked="checked" name="remember"> Keep me Signed in</label>
+                <span class="button-span">
+                    <button type="submit">Sign Up</button>
+                </span>
+            </span>
+    </form>
+    <p id="messageID" th:if="model" th:text="${message}"></p>
+    <div class="div2">
+        <a href=PasswordRecovery>Forgot password?</a>
+    </div>
+</div>
+</body>
+</html>
+
