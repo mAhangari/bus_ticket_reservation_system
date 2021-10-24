@@ -5,8 +5,6 @@ import ir.maktab.bus_ticket_reservation_system.service.login.ExceptionHandling.A
 import ir.maktab.bus_ticket_reservation_system.service.login.ExceptionHandling.AccountNotFoundException;
 import ir.maktab.bus_ticket_reservation_system.service.login.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
