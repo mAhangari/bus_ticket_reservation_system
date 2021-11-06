@@ -1,1 +1,1 @@
-# bus_ticket_reservation_system
+# Bus ticket reservation system
